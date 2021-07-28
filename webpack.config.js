@@ -17,5 +17,33 @@ module.exports = {
 	plugins: [
 		new webpack.DefinePlugin({ IS_DEVELOPMENT }),
 		new CopyWebpackPlugin({ patterns: [{ from: './assets', to: '' }] }),
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+			chunkFilename: '[id].css',
+		}),
 	],
+	module: {
+		rules: [
+			{
+				test: /.js$/,
+				use: {
+					loader: 'babel-loader',
+				},
+			},
+			{
+				test: /.scss$/,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: '',
+						},
+					},
+					{
+						loader: 'css-loader',
+					},
+				],
+			},
+		],
+	},
 };
