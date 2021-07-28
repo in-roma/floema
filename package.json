@@ -4,11 +4,19 @@
   "description": "exercise: Building an immersive creative website from scratch without frameworks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "",
-    "build": "",
-    "development": ""
+    "start": "npm run development",
+    "build": "webpack --progress --config webpack.config.build.js",
+    "development": "webpack serve --progress --config webpack.config.development.js"
   },
   "author": "R~G",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "mini-css-extract-plugin": "^2.1.0",
+    "webpack": "^5.47.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  }
 }
