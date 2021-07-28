@@ -1,0 +1,14 @@
+{
+  "name": "floema",
+  "version": "1.0.0",
+  "description": "exercise: Building an immersive creative website from scratch without frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "",
+    "build": "",
+    "development": ""
+  },
+  "author": "R~G",
+  "license": "ISC"
+}
