@@ -16,6 +16,8 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "file-loader": "^6.2.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
     "mini-css-extract-plugin": "^2.1.0",
     "postcss-loader": "^6.1.1",
     "sass": "^1.36.0",
@@ -26,6 +28,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@babel/core": "^7.14.8"
+    "@babel/core": "^7.14.8",
+    "image-minimizer-webpack-plugin": "^2.2.0"
   }
 }
