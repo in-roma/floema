@@ -38,11 +38,14 @@
   },
   "dependencies": {
     "@babel/core": "^7.14.8",
+    "@prismicio/client": "^5.1.0",
     "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
     "eslint-webpack-plugin": "^3.0.1",
     "express": "^4.17.1",
     "image-minimizer-webpack-plugin": "^2.2.0",
     "nodemon": "^2.0.12",
+    "prismic-dom": "^2.2.6",
     "pug": "^3.0.2"
   }
 }

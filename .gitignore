@@ -1,2 +1,4 @@
 material/
 node_modules/
+
+.env
