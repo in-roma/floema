@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const Prismic = require('@prismicio/client');
-var PrismicDOM = require('prismic-dom');
+const PrismicDOM = require('prismic-dom');
 
 const express = require('express');
 const app = express();
@@ -9,7 +9,7 @@ const port = 3000;
 const path = require('path');
 
 const initApi = (req) => {
-	return Prismic.getApi(process.env.PRIMSIC_ENDPOINT, {
+	return Prismic.getApi(process.env.PRISMIC_ENDPOINT, {
 		accessToken: process.env.PRISMIC_ACCESS_TOKEN,
 		req,
 	});
@@ -21,8 +21,7 @@ const handleResolver = (doc) => {
 	// } else if (doc.type === 'blog_post') {
 	// 	return '/blog/' + doc.uid;
 	// }
-
-	return '/';
+	// return '/';
 };
 
 app.use((req, res, next) => {
@@ -41,18 +40,18 @@ app.get('/', (req, res) => {
 	res.render('pages/home');
 });
 
-app.get('/about', (req, res) => {
+app.get('/about', async (req, res) => {
 	initApi(req).then((api) => {
-		api.query(Prismic.Predicates.at('document.type', 'about')).then(
-			(response) => {
-				const { results } = response;
-				const { about } = results;
-				console.log(about);
-				res.render('pages/about');
-			}
-		);
+		api.query(
+			Prismic.Predicates.any('document.type', ['about', 'meta'])
+		).then((response) => {
+			const { results } = response;
+			const [about, meta] = results;
+			console.log('this is about: ', about, 'this is meta:', meta);
+			res.render('pages/about', { about, meta });
+		});
 	});
-	res.render('pages/about');
+	// res.render('pages/about');
 });
 
 app.get('/collections', (req, res) => {
