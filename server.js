@@ -43,15 +43,18 @@ app.get('/', (req, res) => {
 app.get('/about', async (req, res) => {
 	initApi(req).then((api) => {
 		api.query(
-			Prismic.Predicates.any('document.type', ['about', 'meta'])
+			Prismic.Predicates.any('document.type', ['meta', 'about'])
 		).then((response) => {
 			const { results } = response;
 			const [about, meta] = results;
-			console.log('this is about: ', about, 'this is meta:', meta);
+
+			console.log(about.data.body);
+
+			// about.data.gallery.forEach((media) => console.log(media));
+
 			res.render('pages/about', { about, meta });
 		});
 	});
-	// res.render('pages/about');
 });
 
 app.get('/collections', (req, res) => {
