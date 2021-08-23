@@ -58,7 +58,7 @@ app.get('/collections', async (req, res) => {
 	);
 
 	collections.forEach((collection) => {
-		console.log(collection.data.products);
+		console.log(collection.data.products[0].products_product);
 	});
 
 	res.render('pages/collections', { meta, collections });
